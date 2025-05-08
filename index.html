@@ -13,7 +13,11 @@
   </head>
 
   <body>
-    <audio id="audio" src="/img/Grimes  Oblivion.mp3" autoplay loop></audio>
+    <audio id="audio" src="/img/Mlfu.mp3" autoplay loop></audio>
+    <div id="start-screen">
+      <button id="start-button">Start the Surprise</button>
+    </div>
+    
     <div class="container">
       <div class="one">
         <h1 class="one">
@@ -50,7 +54,7 @@
         </p>
       </div>
       <div class="six">
-        <img src="img/vector.jpg" alt="" class = "girl-dp" id="imagePath" />
+        <img src="img/yul.jpg" alt="" class = "girl-dp" id="imagePath" />
         <div class="wish">
           <h3 class="wish-hbd">Love you Gorgeous</h3>
           <h5 id="wishText">.....</h5>
@@ -130,6 +134,22 @@
         <p class="last-smile">✿</p>
       </div>
     </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const startBtn = document.getElementById('start-button');
+        const startScreen = document.getElementById('start-screen');
+        const container = document.querySelector('.container');
+    
+        startBtn.addEventListener('click', () => {
+          startScreen.style.display = 'none';
+          container.style.visibility = 'visible';
+          document.getElementById("audio").play()
+
+        });
+      });
+    </script>
+    
   </body>
 
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>

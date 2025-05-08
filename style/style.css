@@ -2,36 +2,64 @@
 
 html {
   box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 body {
   margin: 0;
   font-family: 'Romantic', sans-serif;
-    background-color: #000000;
+  background-color: #000;
   color: rgb(255, 164, 235);
+  overflow-x: hidden;
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+#start-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  color: pink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 1rem;
+}
+
+#start-button {
+  padding: 1.2rem 2.5rem;
+  font-size: 1.5rem;
+  background-color: rgb(255, 164, 235);
+  border: none;
+  border-radius: 10px;
+  color: #000;
+  cursor: pointer;
+  font-family: 'Romantic', sans-serif;
+  box-shadow: 0 0 10px pink;
+  transition: transform 0.2s ease;
+}
+
+#start-button:hover {
+  transform: scale(1.1);
 }
 
 .container {
-  height: 100vh;
-  width: 100vh;
+  min-height: 100vh;
+  width: 100vw;
   margin: 0 auto;
-  text-align: center;
   visibility: hidden;
   position: relative;
-  overflow: hidden;
-}
-
-.container div.six {
-  top: -8vh;
-  z-index: 1;
-}
-
-.container div.seven,
-.container div.eight {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
+  overflow-x: hidden;
+  padding: 0 1rem;
 }
 
 .container > div {
@@ -40,46 +68,52 @@ body {
   right: 0;
   top: 20vh;
 }
-.girl-dp{
-rotate: -90deg;
+
+.girl-dp {
+  transform: rotate(-90deg);
+  width: 90vw;
+  max-width: 400px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
 }
 
 .one {
-  font-size: 5rem;
+  font-size: clamp(2rem, 6vw, 5rem);
 }
 
 .one > img {
   vertical-align: middle;
-  margin-bottom: 10px;
   max-width: 100%;
   height: auto;
 }
 
 .two {
-  font-size: 1.9rem;
+  font-size: clamp(1.4rem, 4vw, 2rem);
   font-weight: lighter;
 }
 
 .three {
-  font-size: 3rem;
+  font-size: clamp(1.6rem, 5vw, 3rem);
 }
 
 .four .text-box {
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   margin: 0 auto;
   border: 3px solid #aaa;
   border-radius: 5px;
   padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
   position: relative;
 }
 
 .text-box p {
   margin: 0;
   text-align: left;
-}
-
-.text-box span {
-  visibility: hidden;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  word-wrap: break-word;
 }
 
 .text-box .fake-btn {
@@ -90,13 +124,12 @@ rotate: -90deg;
   background-color: rgb(21, 161, 237);
   padding: 5px 8px;
   border-radius: 3px;
+  font-size: 1rem;
 }
 
 .five p {
-  font-size: 2rem;
-  position: absolute;
-  left: 0;
-  right: 0;
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  margin: 0 auto;
 }
 
 .idea-3 strong {
@@ -105,8 +138,8 @@ rotate: -90deg;
   display: inline-block;
 }
 
-.five .idea-5 {
-  font-size: 4rem;
+.idea-5 {
+  font-size: clamp(2.5rem, 8vw, 4rem);
 }
 
 .idea-5 span,
@@ -116,17 +149,19 @@ rotate: -90deg;
 }
 
 .idea-6 span {
-  font-size: 16rem;
+  font-size: clamp(4rem, 16vw, 12rem);
 }
 
 .six {
   position: relative;
+  margin-top: 2rem;
 }
 
 .six img {
-  display: inline-block;
-  max-width: 45%;
+  display: block;
+  max-width: 90%;
   height: auto;
+  margin: 0 auto;
 }
 
 .six .hat {
@@ -134,25 +169,15 @@ rotate: -90deg;
   width: 80px;
   top: -35px;
   left: 41.5%;
-  /* transform: scale(0.1); */
 }
 
 .baloons img {
-  display: inline-block;
   position: absolute;
-  width: 200px;
+  width: 100px;
 }
 
-.baloons img:nth-child(even) {
-  left: 10%;
-}
-
-.baloons img:nth-child(odd) {
-  right: 10%;
-}
-
-.baloons img:nth-child(3n + 0) {
-  left: 30%;
+.eight {
+  padding: 2rem;
 }
 
 .eight svg {
@@ -164,73 +189,18 @@ rotate: -90deg;
   z-index: -1;
 }
 
-.eight svg:nth-child(1) {
-  top: 7vh;
-  left: 5vw;
-  fill: #f35eda;
-}
-
-.eight svg:nth-child(2) {
-  top: 23vh;
-  left: 35vw;
-  fill: #7dd175;
-}
-
-.eight svg:nth-child(3) {
-  top: 33vh;
-  left: 23vw;
-  fill: #349d8b;
-}
-
-.eight svg:nth-child(4) {
-  top: 43vh;
-  left: 57vw;
-  fill: #347a9d;
-}
-
-.eight svg:nth-child(5) {
-  top: 68vh;
-  left: 7vw;
-  fill: #c66053;
-}
-
-.eight svg:nth-child(6) {
-  top: 42vh;
-  left: 77vw;
-  fill: #bfaa40;
-}
-
-.eight svg:nth-child(7) {
-  top: 68vh;
-  left: 83vw;
-  fill: #e3bae8;
-}
-
-.eight svg:nth-child(8) {
-  top: 86vh;
-  left: 37vw;
-  fill: #8762cb;
-}
-
-.eight svg:nth-child(9) {
-  top: 94vh;
-  left: 87vw;
-  fill: #9a90da;
-}
-
 .wish-hbd {
-  font-size: 3em;
-  /* text-transform: uppercase; */
+  font-size: clamp(2rem, 5vw, 3em);
 }
 
 .wish h5 {
   font-weight: lighter;
-  font-size: 2rem;
+  font-size: clamp(1rem, 4vw, 2rem);
   margin: 10px 0 0;
 }
 
 .nine p {
-  font-size: 2rem;
+  font-size: clamp(1rem, 4vw, 2rem);
   font-weight: lighter;
 }
 
@@ -239,68 +209,95 @@ rotate: -90deg;
   cursor: pointer;
 }
 
-/* Media Queries */
-@media screen and (max-height: 1000px) {
-  .six .hat {
-    left: 40%;
-  }
+.last-smile {
+  font-size: 2rem;
+  margin-top: 1rem;
 }
 
-@media screen and (max-height: 800px) {
-  .six .hat {
-    left: 37%;
-  }
-}
-
-@media screen and (max-height: 700px) {
-  .six .hat {
-    left: 32%;
-  }
-}
-
-@media screen and (max-height: 850px) and (max-width: 450px) {
-  .six .hat {
-    left: 32%;
-  }
-}
-
+/* Responsive Tweaks */
 @media screen and (max-width: 500px) {
-  .container {
-    width: 90%;
+  body {
+    font-size: 16px;
+    line-height: 1.6;
   }
 
-  .four .text-box {
-    width: 90%;
+  .container > div {
+    top: 10vh;
   }
 
-  .text-box .fake-btn {
-    right: 5px;
-    bottom: -38px;
+  .one {
+    font-size: 2rem;
   }
 
-  .idea-5 span {
-    display: block;
+  .two,
+  .three,
+  .five p,
+  .wish h5,
+  .nine p {
+    font-size: 1.1rem;
+  }
+
+  .idea-5 {
+    font-size: 2.2rem;
   }
 
   .idea-6 span {
-    font-size: 10rem;
+    font-size: 6rem;
   }
 
   .six .hat {
     width: 50px;
     top: -20px;
+    left: 35%;
   }
 
+  .text-box .fake-btn {
+    position: relative;
+    display: inline-block;
+    margin-top: 1rem;
+    right: auto;
+    bottom: auto;
+  }
+
+  .baloons img {
+    width: 50px;
+  }
+
+  .girl-dp {
+    transform: rotate(-90deg);
+    width: 90vw;
+    max-width: 400px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    top: -40px; /* Moves the image up slightly */
+  }
+  body, .container, .container > div,
+  .text-box, .wish, .wish-hbd, .nine, .five, .six, .idea-1, .idea-2, .idea-3, .idea-4, .idea-5, .idea-6 {
+    text-align: center;
+  }
+  .text-box p {
+    text-align: center; /* Override previous left-alignment */
+  }
+  
+  .wish h5,
+  .nine p,
+  .five p {
+    text-align: center;
+  }
   .wish-hbd {
-    font-size: 2.3em;
+    font-size: 2rem;
   }
 
-  .wish h5 {
-    font-size: 1.4rem;
+  .last-smile {
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
-
-  .nine p {
-    font-size: 1.5rem;
-    font-weight: lighter;
+}
+@media screen and (max-width: 500px) {
+  .girl-dp {
+    top: -30px; /* Less aggressive on small screens */
   }
 }
